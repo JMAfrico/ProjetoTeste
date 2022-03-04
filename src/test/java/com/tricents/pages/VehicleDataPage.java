@@ -6,11 +6,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class CotacaoPage {
+public class VehicleDataPage {
 
-	WebDriver driver;
+	private WebDriver driver;
 	
-	public CotacaoPage(WebDriver driver) {
+	public VehicleDataPage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
@@ -75,7 +75,7 @@ public class CotacaoPage {
 	@FindBy(xpath = "//button[@id='nextenterinsurantdata']")
 	private WebElement btnNext;
 	
-	public void navigateTo_HomePage() {
+	public void navigateToHomePage() {
 		driver.get("http://sampleapp.tricentis.com/101/app.php");
 	}
 	
