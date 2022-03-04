@@ -6,6 +6,7 @@ Funcionalidade: Cotacao
   @cotacao_com_sucesso
   Cenario: Cotacao com sucesso
     Dado que estou no site de cotacao
+    E que estou na guia Vehicle Data
     Quando seleciono a marca do veiculo "Nissan"
     E seleciono a modelo do veiculo "Moped"
     E digito a cilindrada do veiculo "125" ccm

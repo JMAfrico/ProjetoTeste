@@ -1,41 +1,31 @@
 package com.tricents.steps;
 
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import com.tricents.pages.BrowserFactory;
 import com.tricents.pages.CotacaoPage;
-import io.cucumber.java.After;
-import io.cucumber.java.Before;
-import io.cucumber.java.Scenario;
 import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.Quando;
-//import org.openqa.selenium.JavascriptExecutor;
 
 public class CotacaoStep {
 
 	BrowserFactory browser;
 	WebDriver driver;
 	CotacaoPage cotacaoPage;
-	Scenario cenario;
-	//JavascriptExecutor js;
 			
-	public CotacaoStep() {
+	public CotacaoStep() {		
 		driver = BrowserFactory.getChromeDriver();
 		cotacaoPage = new CotacaoPage(driver);
-		//js = (JavascriptExecutor)driver;
-	}
-	
-	@Before
-	public void setup(Scenario cenario) {
-		this.cenario = cenario;
-		System.out.println("-------------INICIANDO AUTOMAÇÃO----------");	
-		System.out.println("*****TAG: "+cenario.getSourceTagNames());	
-		System.out.println("*****CENARIO: "+cenario.getName());		
-		System.out.println("-------------------------------------------");
 	}
 	
 	@Dado("que estou no site de cotacao")
 	public void que_estou_no_site_de_cotacao() {
 		cotacaoPage.verificoQueEstouNoSiteDeCotacao();
+	}
+	
+	@Dado("que estou na guia Vehicle Data")
+	public void que_estou_na_guia_vehicle_data() {
+		Assert.assertTrue(cotacaoPage.getMenuEnterVehicleDataActive().isDisplayed());
 	}
 
 	@Quando("seleciono a marca do veiculo {string}")
@@ -55,7 +45,6 @@ public class CotacaoStep {
 
 	@Quando("seleciono o numero de assentos do veiculo {string}")
 	public void seleciono_o_numero_de_assentos_do_veiculo(String numeroAssentos) {
-		//js.executeScript("arguments[0].scrollIntoView(true);", cotacaoPage.getSelectNumberofSeats().isDisplayed());
 		cotacaoPage.getSelectNumberofSeats().sendKeys(numeroAssentos);
 	}
 
@@ -112,14 +101,5 @@ public class CotacaoStep {
 	@Quando("digito o peso do veiculo {string}")
 	public void digito_o_peso_do_veiculo(String pesoTotal) {
 		cotacaoPage.getTxtTotalWeight().sendKeys(pesoTotal);
-	}
-
-	@After
-	public void tearDown(Scenario cenario) {
-		this.cenario = cenario;
-		System.out.println("--------------------------------------------");
-		System.out.println("-------------FINALIZANDO AUTOMAÇÃO----------");
-		System.out.println("*****STATUS: "+cenario.getStatus());
-		//BrowserFactory.exitChromeDriver(driver);
 	}
 }

@@ -1,5 +1,6 @@
 package com.tricents.pages;
 
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -14,13 +15,20 @@ public class CotacaoPage {
 		PageFactory.initElements(driver, this);
 	}
 	
-	public void navigateTo_HomePage() {
-		driver.get("http://sampleapp.tricentis.com/101/app.php");
-	}
+	@FindBy(xpath = "//a[@name='Enter Vehicle Data']//ancestor::li[@class='idealsteps-step-active']")
+	private WebElement menuEnterVehicleDataActive;
 	
-	public boolean verificoQueEstouNoSiteDeCotacao() {
-		return this.driver.getCurrentUrl().equals("http://sampleapp.tricentis.com/101/app.php");	
-	}	
+	@FindBy(xpath = "//a[@name='Enter Insurant Data']//ancestor::li[@class='idealsteps-step-active']")
+	private WebElement menuEnterInsurantActive;
+	
+	@FindBy(xpath = "//a[@name='Enter Product Data']//ancestor::li[@class='idealsteps-step-active']")
+	private WebElement menuEnterProductDataActive;
+	
+	@FindBy(xpath = "//a[@name='Select Price Option']//ancestor::li[@class='idealsteps-step-active']")
+	private WebElement menuSelectPriceOptionActive;
+	
+	@FindBy(xpath = "//a[@name='Send Quote']//ancestor::li[@class='idealsteps-step-active']")
+	private WebElement menuSendQuoteActive;
 	
 	@FindBy(xpath = "//select[@id='make']")
 	private WebElement selectMake;
@@ -67,8 +75,36 @@ public class CotacaoPage {
 	@FindBy(xpath = "//button[@id='nextenterinsurantdata']")
 	private WebElement btnNext;
 	
+	public void navigateTo_HomePage() {
+		driver.get("http://sampleapp.tricentis.com/101/app.php");
+	}
+	
+	public void verificoQueEstouNoSiteDeCotacao() {
+		Assert.assertEquals("http://sampleapp.tricentis.com/101/app.php",driver.getCurrentUrl());	
+	}	
+	
 	public WebElement getSelectModel() {
 		return selectModel;
+	}
+
+	public WebElement getMenuEnterVehicleDataActive() {
+		return menuEnterVehicleDataActive;
+	}
+
+	public WebElement getMenuEnterInsurantActive() {
+		return menuEnterInsurantActive;
+	}
+
+	public WebElement getMenuEnterProductDataActive() {
+		return menuEnterProductDataActive;
+	}
+
+	public WebElement getMenuSelectPriceOptionActive() {
+		return menuSelectPriceOptionActive;
+	}
+
+	public WebElement getMenuSendQuoteActive() {
+		return menuSendQuoteActive;
 	}
 
 	public WebElement getTxtCylinderCapacity() {
