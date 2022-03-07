@@ -6,7 +6,7 @@ Funcionalidade: Cotacao
   @cotacao_com_sucesso
   Cenario: Cotacao com sucesso
     Dado que estou no site de cotacao
-    E que estou na guia Vehicle Data
+    E verifico que estou na guia Vehicle Data
     Quando seleciono a marca do veiculo "Nissan"
     E seleciono a modelo do veiculo "Moped"
     E digito a cilindrada do veiculo "125" ccm
@@ -34,8 +34,26 @@ Funcionalidade: Cotacao
     E seleciono a profissao do cliente "Desempregado"
     E seleciono os hobbies do cliente
     E digito o website do cliente "www.github.com"
-    E seleciono uma imagem do cliente 
     E clico em next de insurant data
-    
+    E verifico que estou na guia Product Data
+    E seleciono a data inicial "10/04/2022"
+    E seleciono a soma do seguro "10 mil"
+    E seleciono a classificacao do seguro "super bonus"
+    E seleciono a opcao "nao" de seguro contra danos 
+    E seleciono algum item de produto adicional
+    E seleciono a opcao "nao" de carro de cortesia
+    E clico em next de product data
+    E verifico que estou na guia Select Price Option
+    E seleciono a opcao de cotacao gold
+    E clico em next de Select Price Option  
+    E verifico que estou na guia Send Quote
+    E digito o email do cliente "LuanSoz@hotmail.com"
+    E digito o telefone do cliente "11987998799"
+    E digito o nome de usuario do cliente "LuanSoz"
+    E digito a senha do cliente "@Luan123"
+    E digito a confirmacao de senha do cliente "@Luan123"
+    E digito os comentarios opcionais da solicitacao do cliente
+    E clico em Send de Send Quote
+    Entao valido a cotacao enviada com sucesso
     
 

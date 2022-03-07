@@ -76,11 +76,6 @@ public class InsurantDataStep {
 		insurantDataPage.getTxtWebsite().sendKeys(site);
 	}
 
-	@Quando("seleciono uma imagem do cliente")
-	public void seleciono_uma_imagem_do_cliente() {
-	
-	}
-
 	@Quando("clico em next de insurant data")
 	public void clico_em_next_de_insurant_data() {
 		insurantDataPage.getBtnNextEnterProductData().click();

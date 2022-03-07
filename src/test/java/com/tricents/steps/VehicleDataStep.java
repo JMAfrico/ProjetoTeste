@@ -22,8 +22,8 @@ public class VehicleDataStep {
 		vehicleDataPage.verificoQueEstouNoSiteDeCotacao();
 	}
 	
-	@Dado("que estou na guia Vehicle Data")
-	public void que_estou_na_guia_vehicle_data() {
+	@Dado("verifico que estou na guia Vehicle Data")
+	public void verifico_que_estou_na_guia_vehicle_data() {
 		Assert.assertTrue(vehicleDataPage.getMenuEnterVehicleDataActive().isDisplayed());
 	}
 

@@ -28,7 +28,6 @@ public class InsurantDataPage {
 
 	@FindBy(xpath = "(//label[@class='ideal-radiocheck-label']//ancestor::label)[3]")
 	private WebElement rdbGenderMale;
-	//input[@id='gendermale']
 	
 	@FindBy(xpath = "//input[@id='streetaddress']")
 	private WebElement txtStreetAddress;
@@ -47,8 +46,6 @@ public class InsurantDataPage {
 
 	@FindBy(xpath = "((//p[@class='group'])[3])//following::label[@class='ideal-radiocheck-label'][4]")
 	private WebElement rdbHobbies;
-	//p[@class='group']//following::input[@id='skydiving']
-	//input[@id='skydiving']
 
 	@FindBy(xpath = "((//p[@class='group'])[3])//following::label[@class='ideal-radiocheck-label'][5]")
 	private WebElement rdbHobbies2;

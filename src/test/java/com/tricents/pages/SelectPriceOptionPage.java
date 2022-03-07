@@ -17,7 +17,22 @@ public class SelectPriceOptionPage {
 	@FindBy(xpath = "//a[@name='Select Price Option']//ancestor::li[@class='idealsteps-step-active']")
 	private WebElement menuSelectPriceOptionActive;
 
+	@FindBy(xpath = "//table[@id='priceTable']//following::input[@id='selectgold']//ancestor::label")
+	private WebElement rdbSelectPriceOption;
+	
+	@FindBy(xpath = "//button[@id='nextsendquote']")
+	private WebElement btnNextSendQuote;
+	
 	public WebElement getMenuSelectPriceOptionActive() {
 		return menuSelectPriceOptionActive;
 	}
+	
+	public WebElement getRdbSelectPriceOption() {
+		return rdbSelectPriceOption;
+	}
+
+	public WebElement getBtnNextSendQuote() {
+		return btnNextSendQuote;
+	}
+
 }
