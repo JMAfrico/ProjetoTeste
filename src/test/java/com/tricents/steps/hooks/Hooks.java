@@ -1,4 +1,4 @@
-package com.tricents.steps;
+package com.tricents.steps.hooks;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -26,6 +26,6 @@ public class Hooks{
 		System.out.println("--------------------------------------------");
 		System.out.println("-------------FINALIZANDO AUTOMAÇÃO----------");
 		System.out.println("*****STATUS: "+cenario.getStatus());
-		testContext.getWebDriverManager().closeDriver();
+		//testContext.getWebDriverManager().closeDriver();
 	}	
 }

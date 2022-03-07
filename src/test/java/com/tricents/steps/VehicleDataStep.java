@@ -13,7 +13,7 @@ public class VehicleDataStep {
 			
 	public VehicleDataStep(TestContext testContext) {		
 		this.testContext = testContext;
-		vehicleDataPage = testContext.getPageObjectManager().getCotacaoPage();
+		vehicleDataPage = testContext.getPageObjectManager().getVehiclePage();
 		vehicleDataPage.navigateToHomePage();
 	}
 	
@@ -67,8 +67,8 @@ public class VehicleDataStep {
 		vehicleDataPage.getTxtAnnualMileage().sendKeys(quilometragem);
 	}
 
-	@Quando("clico em next")
-	public void clico_em_next() {
+	@Quando("clico em next de vehicle data")
+	public void clico_em_next_de_vehicle_data() {
 		vehicleDataPage.getBtnNext().click();
 	}
 	

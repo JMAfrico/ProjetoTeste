@@ -21,6 +21,21 @@ Funcionalidade: Cotacao
     E digito o preco de tabela do veiculo "25000"
     E digito o numero da placa do veiculo "HKF2258C"
     E digito a quilometragem do veiculo "75000"
-    E clico em next
+    E clico em next de vehicle data
+    E verifico que estou na guia Insurant Data
+    E digito o primeiro nome do cliente "Luan"
+    E digito o sobrenome do cliente "Souza"
+    E digito a data de nascimento do cliente "02/02/2000" 
+    E seleciono o genero do cliente masculino
+    E digito o endereco do cliente "Rua das aguas"
+    E seleciono o pais de nascimento do cliente "Brasil"
+    E digito o cep do cliente "04485554"
+    E digito a cidade do cliente "Sao Paulo"
+    E seleciono a profissao do cliente "Desempregado"
+    E seleciono os hobbies do cliente
+    E digito o website do cliente "www.github.com"
+    E seleciono uma imagem do cliente 
+    E clico em next de insurant data
+    
     
 

@@ -18,18 +18,6 @@ public class VehicleDataPage {
 	@FindBy(xpath = "//a[@name='Enter Vehicle Data']//ancestor::li[@class='idealsteps-step-active']")
 	private WebElement menuEnterVehicleDataActive;
 	
-	@FindBy(xpath = "//a[@name='Enter Insurant Data']//ancestor::li[@class='idealsteps-step-active']")
-	private WebElement menuEnterInsurantActive;
-	
-	@FindBy(xpath = "//a[@name='Enter Product Data']//ancestor::li[@class='idealsteps-step-active']")
-	private WebElement menuEnterProductDataActive;
-	
-	@FindBy(xpath = "//a[@name='Select Price Option']//ancestor::li[@class='idealsteps-step-active']")
-	private WebElement menuSelectPriceOptionActive;
-	
-	@FindBy(xpath = "//a[@name='Send Quote']//ancestor::li[@class='idealsteps-step-active']")
-	private WebElement menuSendQuoteActive;
-	
 	@FindBy(xpath = "//select[@id='make']")
 	private WebElement selectMake;
 	
@@ -89,22 +77,6 @@ public class VehicleDataPage {
 
 	public WebElement getMenuEnterVehicleDataActive() {
 		return menuEnterVehicleDataActive;
-	}
-
-	public WebElement getMenuEnterInsurantActive() {
-		return menuEnterInsurantActive;
-	}
-
-	public WebElement getMenuEnterProductDataActive() {
-		return menuEnterProductDataActive;
-	}
-
-	public WebElement getMenuSelectPriceOptionActive() {
-		return menuSelectPriceOptionActive;
-	}
-
-	public WebElement getMenuSendQuoteActive() {
-		return menuSendQuoteActive;
 	}
 
 	public WebElement getTxtCylinderCapacity() {
