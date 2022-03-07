@@ -1,10 +1,14 @@
 package com.tricents.pages;
 
+import java.time.Duration;
+
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  * Classe responsável por localizar os elementos da guia Vehicle Data
@@ -12,9 +16,11 @@ import org.openqa.selenium.support.PageFactory;
 public class VehicleDataPage {
 
 	WebDriver driver;
+	private WebDriverWait wait;
 	
 	public VehicleDataPage(WebDriver driver) {
 		this.driver = driver;
+		wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		PageFactory.initElements(driver, this);
 	}
 	
@@ -66,7 +72,7 @@ public class VehicleDataPage {
 	@FindBy(xpath = "//button[@id='nextenterinsurantdata']")
 	private WebElement btnNext;
 	
-	public void navigateToHomePage() {
+	public void navegarParaHomePage() {
 		driver.get("http://sampleapp.tricentis.com/101/app.php");
 	}
 	
@@ -74,67 +80,68 @@ public class VehicleDataPage {
 		Assert.assertEquals("http://sampleapp.tricentis.com/101/app.php",driver.getCurrentUrl());	
 	}	
 	
-	public WebElement getSelectModel() {
-		return selectModel;
+	public void verificarSeMenuEnterVehicleEstaAtivo() {
+		boolean ativo = wait.until(ExpectedConditions.visibilityOf(menuEnterVehicleDataActive)).isDisplayed();
+		Assert.assertTrue(ativo);
 	}
 	
-	public void getMenuEnterVehicleIsActive() {
-		Assert.assertTrue(menuEnterVehicleDataActive.isDisplayed());
+	public void selecionarModelo(String modelo) {
+		wait.until(ExpectedConditions.visibilityOf(selectModel)).sendKeys(modelo);
+	}
+	
+	public void preencherCapacidadeCilindradas(String cilindradas) {
+		wait.until(ExpectedConditions.visibilityOf(txtCylinderCapacity)).sendKeys(cilindradas);
 	}
 
-	public WebElement getTxtCylinderCapacity() {
-		return txtCylinderCapacity;
+	public void selecionarMotoristaDirigeLadoDireito() {
+		wait.until(ExpectedConditions.visibilityOf(selectRightHandDrive)).click();
 	}
 
-	public WebElement getSelectRightHandDrive() {
-		return selectRightHandDrive;
+	public void selecionarNumeroDeAssentosLadoMotorista(String assentos) {
+		wait.until(ExpectedConditions.visibilityOf(selectNumberofSeatsMotorcycle)).sendKeys(assentos);
 	}
 
-	public WebElement getSelectNumberofSeatsMotorcycle() {
-		return selectNumberofSeatsMotorcycle;
+	public void preecherCargaUtil(String cargaUtil) {
+		wait.until(ExpectedConditions.visibilityOf(txtPayload)).sendKeys(cargaUtil);
 	}
 
-	public WebElement getTxtPayload() {
-		return txtPayload;
+	public void preencherPesoTotal(String pesoTotal) {
+		wait.until(ExpectedConditions.visibilityOf(txtTotalWeight)).sendKeys(pesoTotal);
 	}
 
-	public WebElement getTxtTotalWeight() {
-		return txtTotalWeight;
+	public void clicarBotaoNext() {
+		wait.until(ExpectedConditions.visibilityOf(btnNext)).click();
 	}
 
-	public WebElement getBtnNext() {
-		return btnNext;
+	public void preencherForcaDoMotor(String forca) {
+		wait.until(ExpectedConditions.visibilityOf(txtEnginePerform)).sendKeys(forca);
 	}
 
-	public WebElement getTxtEnginePerform() {
-		return txtEnginePerform;
+	public void preencherDataDeFabricacao(String data) {
+		wait.until(ExpectedConditions.visibilityOf(txtDateofManufacture)).sendKeys(data);
 	}
 
-	public WebElement getTxtDateofManufacture() {
-		return txtDateofManufacture;
+	public void preencherNumeroDeAssentos(String numeroAssentos) {
+		wait.until(ExpectedConditions.visibilityOf(selectNumberofSeats)).sendKeys(numeroAssentos);
 	}
 
-	public WebElement getSelectNumberofSeats() {
-		return selectNumberofSeats;
+	public void selecionarTipoDeCombustivel(String tipoCombustivel) {
+		wait.until(ExpectedConditions.visibilityOf(selectFuelType)).sendKeys(tipoCombustivel);
 	}
 
-	public WebElement getSelectFuelType() {
-		return selectFuelType;
+	public void preencherPrecoDeTabela(String precoTabela) {
+		wait.until(ExpectedConditions.visibilityOf(txtListPrice)).sendKeys(precoTabela);
 	}
 
-	public WebElement getTxtListPrice() {
-		return txtListPrice;
+	public void preencherNumeroDaPlaca(String numeroPlaca) {
+		wait.until(ExpectedConditions.visibilityOf(txtLicensePlateNumber)).sendKeys(numeroPlaca);
 	}
 
-	public WebElement getTxtLicensePlateNumber() {
-		return txtLicensePlateNumber;
+	public void preencherQuilometragemAtual(String quilometragem) {
+		wait.until(ExpectedConditions.visibilityOf(txtAnnualMileage)).sendKeys(quilometragem);
 	}
 
-	public WebElement getTxtAnnualMileage() {
-		return txtAnnualMileage;
-	}
-
-	public WebElement getSelectMake() {
-		return selectMake;
+	public void preencherMarcaDoVeiculo(String marca) {
+		wait.until(ExpectedConditions.visibilityOf(selectMake)).sendKeys(marca);
 	}
 }

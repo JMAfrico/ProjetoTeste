@@ -11,7 +11,7 @@ import managers.TestContext;
 public class ProductDataStep {
 
 	TestContext testContext;
-	ProductDataPage productDataPage;
+	private ProductDataPage productDataPage;
 	
 	public ProductDataStep(TestContext testContext) {
 		this.testContext = testContext;
@@ -25,36 +25,36 @@ public class ProductDataStep {
 
 	@Quando("seleciono a data inicial {string}")
 	public void seleciono_a_data_inicial(String data) {
-		productDataPage.getTxtStartDate().sendKeys(data);
+		productDataPage.preencherDataInicial(data);
 	}
 
 	@Quando("seleciono a soma do seguro {string}")
 	public void seleciono_a_soma_do_seguro(String valor) {
-		productDataPage.getSelectInsuranceSum().sendKeys(valor);
+		productDataPage.selecionarPrecoDoSeguro(valor);
 	}
 
 	@Quando("seleciono a classificacao do seguro {string}")
 	public void seleciono_a_classificacao_do_seguro(String classificacao) {
-		productDataPage.getSelectMeritRating().sendKeys(classificacao);
+		productDataPage.selecionarClassificacaoDoSeguro(classificacao);
 	}
 
-	@Quando("seleciono a opcao {string} de seguro contra danos")
-	public void seleciono_a_opcao_de_seguro_contra_danos(String opcao) {
-		productDataPage.getSelectDamageInsurance().sendKeys("No Coverage");
+	@Quando("seleciono a {string} de seguro contra danos")
+	public void seleciono_a_de_seguro_contra_danos(String opcao) {
+		productDataPage.selecionarCoberturaDoSeguro(opcao);
 	}
 
 	@Quando("seleciono algum item de produto adicional")
 	public void seleciono_algum_item_de_produto_adicional() {
-		productDataPage.getRdbOptionalProducts().click();
+		productDataPage.selecionarRadioButtonOpcoesDeProdutos();
 	}
 
-	@Quando("seleciono a opcao {string} de carro de cortesia")
-	public void seleciono_a_opcao_de_carro_de_cortesia(String opcao) {
-		productDataPage.getSelectCourtesyCar().sendKeys("no");
+	@Quando("seleciono a {string} de carro de cortesia")
+	public void seleciono_a_de_carro_de_cortesia(String opcao) {
+		productDataPage.selecionarCarroDeCortesia(opcao);
 	}
 
 	@Quando("clico em next de product data")
 	public void clico_em_next_de_product_data() {
-		productDataPage.getBtnNextSelectPriceOption().click();
+		productDataPage.clicarBotaoNextSelectPriceOption();
 	}
 }

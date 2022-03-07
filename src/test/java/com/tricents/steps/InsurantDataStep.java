@@ -10,76 +10,75 @@ import managers.TestContext;
 public class InsurantDataStep {
 
 	TestContext testContext;
-	InsurantDataPage insurantDataPage;
+	private InsurantDataPage insurantDataPage;
 	
 	public InsurantDataStep(TestContext testContext) {
 		this.testContext = testContext;
-		insurantDataPage = testContext.getPageObjectManager().getInsurantDataPagePage();
+		insurantDataPage = testContext.getPageObjectManager().getInsurantDataPage();
 	}
 	
 	@Quando("verifico que estou na guia Insurant Data")
 	public void verifico_que_estou_na_guia_insurant_data() {
-		insurantDataPage.getMenuEnterInsurantIsActive();
+		insurantDataPage.verificarSeMenuEnterInsurantEstaAtivado();
 	}
 
 	@Quando("digito o primeiro nome do cliente {string}")
 	public void digito_o_primeiro_nome_do_cliente(String nome) {
-		insurantDataPage.getTxtFirstName().sendKeys(nome);
+		insurantDataPage.preencherNome(nome);
 	}
 
 	@Quando("digito o sobrenome do cliente {string}")
 	public void digito_o_sobrenome_do_cliente(String sobrenome) {
-		insurantDataPage.getTxtLastName().sendKeys(sobrenome);
+		insurantDataPage.preencherSobrenome(sobrenome);
 	}
 
 	@Quando("digito a data de nascimento do cliente {string}")
 	public void digito_a_data_de_nascimento_do_cliente(String data) {
-		insurantDataPage.getTxtDateofBirth().sendKeys(data);
+		insurantDataPage.preencherDataDeNascimento(data);
 	}
 
 	@Quando("seleciono o genero do cliente masculino")
 	public void seleciono_o_genero_do_cliente_masculino() {
-		insurantDataPage.getRdbGenderMale().click();
+		insurantDataPage.selecionarRadioButtonGenero();
 	}
 
 	@Quando("digito o endereco do cliente {string}")
 	public void digito_o_endereco_do_cliente(String endereco) {
-		insurantDataPage.getTxtStreetAddress().sendKeys(endereco);
+		insurantDataPage.preencherEndereco(endereco);
 	}
 
 	@Quando("seleciono o pais de nascimento do cliente {string}")
 	public void seleciono_o_pais_de_nascimento_do_cliente(String pais) {
-		insurantDataPage.getSelectCountry().sendKeys(pais);
+		insurantDataPage.preencherNacionalidade(pais);
 	}
 
 	@Quando("digito o cep do cliente {string}")
 	public void digito_o_cep_do_cliente(String cep) {
-		insurantDataPage.getTxtZipCode().sendKeys(cep);
+		insurantDataPage.preencherCodigoPostal(cep);
 	}
 
 	@Quando("digito a cidade do cliente {string}")
 	public void digito_a_cidade_do_cliente(String cidade) {
-		insurantDataPage.getTxtCity().sendKeys(cidade);
+		insurantDataPage.preencherCidade(cidade);
 	}
 
-	@Quando("seleciono a profissao do cliente {string}")
-	public void seleciono_a_profissao_do_cliente(String profissao) {
-		insurantDataPage.getSelectOccupation().sendKeys("Unemployed");
+	@Quando("seleciono a {string} do cliente")
+	public void seleciono_a_do_cliente(String profissao) {
+		insurantDataPage.preencherProfissao(profissao);
 	}
 
 	@Quando("seleciono os hobbies do cliente")
 	public void seleciono_os_hobbies_do_cliente(){
-		insurantDataPage.getRdbHobbies().click();
-		insurantDataPage.getRdbHobbies2().click();
+		insurantDataPage.preencherHobbies();
 	}
 
 	@Quando("digito o website do cliente {string}")
 	public void digito_o_website_do_cliente(String site) {
-		insurantDataPage.getTxtWebsite().sendKeys(site);
+		insurantDataPage.preencherWebsite(site);
 	}
 
 	@Quando("clico em next de insurant data")
 	public void clico_em_next_de_insurant_data() {
-		insurantDataPage.getBtnNextEnterProductData().click();
+		insurantDataPage.clicarBotaoNextEnterProductData();
 	}
 }

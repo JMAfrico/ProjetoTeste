@@ -28,7 +28,7 @@ public class PageObjectManager {
 		return vehicleDataPage == null ? vehicleDataPage = new VehicleDataPage(driver) : vehicleDataPage;
 	}
 	
-	public InsurantDataPage getInsurantDataPagePage(){
+	public InsurantDataPage getInsurantDataPage(){
 		return insurantDataPage == null ? insurantDataPage = new InsurantDataPage(driver) : insurantDataPage;
 	}
 	

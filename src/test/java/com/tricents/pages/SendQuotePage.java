@@ -1,10 +1,14 @@
 package com.tricents.pages;
 
+import java.time.Duration;
+
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  * Classe responsável por localizar os elementos da guia Send Quote
@@ -12,10 +16,12 @@ import org.openqa.selenium.support.PageFactory;
 public class SendQuotePage {
 
 	WebDriver driver;
+	private WebDriverWait wait; 
 	
 	public SendQuotePage(WebDriver driver) {
 		this.driver = driver;
-		PageFactory.initElements(driver, this);
+		wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+		PageFactory.initElements(driver, this);	
 	}
 	
 	@FindBy(xpath = "//a[@name='Send Quote']//ancestor::li[@class='idealsteps-step-active']")
@@ -45,39 +51,41 @@ public class SendQuotePage {
 	@FindBy(xpath = "//h2[contains(text(),'Sending e-mail success!')]")
 	private WebElement lblEmailSendSucess;
 
-	public void getMenuSendQuoteIsActive() {
-		Assert.assertTrue(menuSendQuoteActive.isDisplayed());
+	public void verificarSeMenuSendQuoteEstaAtivo() {
+		boolean ativo = wait.until(ExpectedConditions.visibilityOf(menuSendQuoteActive)).isDisplayed();
+		Assert.assertTrue(ativo);
 	}
 
-	public WebElement getTxtEMail() {
-		return txtEMail;
+	public void preencherEmail(String email) {
+		wait.until(ExpectedConditions.visibilityOf(txtEMail)).sendKeys(email);
 	}
 
-	public WebElement getTxtPhone() {
-		return txtPhone;
+	public void preencherTelefone(String telefone) {
+		wait.until(ExpectedConditions.visibilityOf(txtPhone)).sendKeys(telefone);
 	}
 
-	public WebElement getTxtUsername() {
-		return txtUsername;
+	public void preencherUsuario(String usuario) {
+		wait.until(ExpectedConditions.visibilityOf(txtUsername)).sendKeys(usuario);
 	}
 
-	public WebElement getTxtPassword() {
-		return txtPassword;
+	public void preencherSenha(String senha) {
+		wait.until(ExpectedConditions.visibilityOf(txtPassword)).sendKeys(senha);
 	}
 
-	public WebElement getTxtConfirmPassword() {
-		return txtConfirmPassword;
+	public void preencherConfirmacaoDeSenha(String confirmacaoSenha) {
+		wait.until(ExpectedConditions.visibilityOf(txtConfirmPassword)).sendKeys(confirmacaoSenha);
 	}
 
-	public WebElement getTxtComments() {
-		return txtComments;
+	public void preencherComentariosAdicionais(String comentarios) {
+		wait.until(ExpectedConditions.visibilityOf(txtComments)).sendKeys(comentarios);
 	}
 
-	public WebElement getBtnSendEmail() {
-		return btnSendEmail;
+	public void clicarBotaoSendEmail() {
+		wait.until(ExpectedConditions.visibilityOf(btnSendEmail)).click();
 	}
 
-	public WebElement getLblEmailSenhSucess() {
-		return lblEmailSendSucess;
+	public void validarMensagemEmailEnviadoComSucesso() {
+		boolean existe = wait.until(ExpectedConditions.visibilityOf(lblEmailSendSucess)).isDisplayed();
+		Assert.assertTrue(existe);
 	}
 }

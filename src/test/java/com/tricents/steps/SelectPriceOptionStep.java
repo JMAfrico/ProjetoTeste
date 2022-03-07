@@ -11,7 +11,7 @@ import managers.TestContext;
 public class SelectPriceOptionStep {
 
 	TestContext testContext;
-	SelectPriceOptionPage selectPriceOptionPage;
+	private SelectPriceOptionPage selectPriceOptionPage;
 	
 	public SelectPriceOptionStep(TestContext testContext) {
 		this.testContext = testContext;
@@ -20,17 +20,16 @@ public class SelectPriceOptionStep {
 	
 	@Quando("verifico que estou na guia Select Price Option")
 	public void verifico_que_estou_na_guia_select_price_option() {
-		selectPriceOptionPage.getMenuSelectPriceOptionIsActive();
+		selectPriceOptionPage.verificarSeMenuSelectPriceEstaAtivo();
 	}
 
 	@Quando("seleciono a opcao de cotacao gold")
 	public void seleciono_a_opcao_de_cotacao_gold() {
-		selectPriceOptionPage.getRdbSelectPriceOption().click();
+		selectPriceOptionPage.selecionarRadioButtonGold();
 	}
 
 	@Quando("clico em next de Select Price Option")
-	public void clico_em_next_de_select_price_option() throws InterruptedException {
-		Thread.sleep(2000);
-		selectPriceOptionPage.getBtnNextSendQuote().click();
+	public void clico_em_next_de_select_price_option(){
+		selectPriceOptionPage.clicarBotaoNextSendQuote();
 	}
 }

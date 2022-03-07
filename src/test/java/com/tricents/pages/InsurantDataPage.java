@@ -1,10 +1,14 @@
 package com.tricents.pages;
 
+import java.time.Duration;
+
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  * Classe responsável por localizar os elementos da guia Insurant Data
@@ -12,9 +16,11 @@ import org.openqa.selenium.support.PageFactory;
 public class InsurantDataPage {
 
 	WebDriver driver;
+	private WebDriverWait wait;
 	
 	public InsurantDataPage(WebDriver driver) {
 		this.driver = driver;
+		wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		PageFactory.initElements(driver, this);
 	}
 	
@@ -63,63 +69,57 @@ public class InsurantDataPage {
 	@FindBy(xpath = "//button[@id='nextenterproductdata']")
 	private WebElement btnNextEnterProductData;
 	
-	public WebElement getBtnNextEnterProductData() {
-		return btnNextEnterProductData;
+	public void clicarBotaoNextEnterProductData() {
+		wait.until(ExpectedConditions.visibilityOf(btnNextEnterProductData)).click();
 	}
 
-	public void getMenuEnterInsurantIsActive() {
-		Assert.assertTrue(menuEnterInsurantActive.isDisplayed());
+	public void verificarSeMenuEnterInsurantEstaAtivado() {
+		boolean ativo = wait.until(ExpectedConditions.visibilityOf(menuEnterInsurantActive)).isDisplayed();
+		Assert.assertTrue(ativo);
 	}
 
-	public WebElement getTxtFirstName() {
-		return txtFirstName;
+	public void preencherNome(String nome) {
+		wait.until(ExpectedConditions.visibilityOf(txtFirstName)).sendKeys(nome);
 	}
 
-	public WebElement getTxtLastName() {
-		return txtLastName;
+	public void preencherSobrenome(String sobrenome) {
+		wait.until(ExpectedConditions.visibilityOf(txtLastName)).sendKeys(sobrenome);
 	}
 
-	public WebElement getTxtDateofBirth() {
-		return txtDateofBirth;
+	public void preencherDataDeNascimento(String dataNascimento) {
+		wait.until(ExpectedConditions.visibilityOf(txtDateofBirth)).sendKeys(dataNascimento);
 	}
 
-	public WebElement getRdbGenderMale() {
-		return rdbGenderMale;
+	public void selecionarRadioButtonGenero() {
+		wait.until(ExpectedConditions.visibilityOf(rdbGenderMale)).click();
 	}
 
-	public WebElement getTxtStreetAddress() {
-		return txtStreetAddress;
+	public void preencherEndereco(String endereco) {
+		wait.until(ExpectedConditions.visibilityOf(txtStreetAddress)).sendKeys(endereco);
 	}
 
-	public WebElement getSelectCountry() {
-		return selectCountry;
+	public void preencherNacionalidade(String nacionalidade) {
+		wait.until(ExpectedConditions.visibilityOf(selectCountry)).sendKeys(nacionalidade);
 	}
 
-	public WebElement getTxtZipCode() {
-		return txtZipCode;
+	public void preencherCodigoPostal(String cep) {
+		wait.until(ExpectedConditions.visibilityOf(txtZipCode)).sendKeys(cep);
 	}
 
-	public WebElement getTxtCity() {
-		return txtCity;
+	public void preencherCidade(String cidade) {
+		wait.until(ExpectedConditions.visibilityOf(txtCity)).sendKeys(cidade);
 	}
 
-	public WebElement getSelectOccupation() {
-		return selectOccupation;
+	public void preencherProfissao(String profissao) {
+		wait.until(ExpectedConditions.visibilityOf(selectOccupation)).sendKeys(profissao);
 	}
 
-	public WebElement getRdbHobbies() {
-		return rdbHobbies;
+	public void preencherHobbies() {
+		wait.until(ExpectedConditions.visibilityOf(rdbHobbies)).click();
+		wait.until(ExpectedConditions.visibilityOf(rdbHobbies2)).click();
 	}
 
-	public WebElement getRdbHobbies2() {
-		return rdbHobbies2;
-	}
-
-	public WebElement getTxtWebsite() {
-		return txtWebsite;
-	}
-
-	public WebElement getPicture() {
-		return Picture;
+	public void preencherWebsite(String site) {
+		wait.until(ExpectedConditions.visibilityOf(txtWebsite)).sendKeys(site);
 	}
 }

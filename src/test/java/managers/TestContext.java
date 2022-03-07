@@ -1,6 +1,5 @@
 package managers;
 
-
 /**
  * Classe de contexto de cenários, responsavel por instânciar o drive que está sendo utilizado e repassar o mesmo 
  * para o próximo método que será executado 

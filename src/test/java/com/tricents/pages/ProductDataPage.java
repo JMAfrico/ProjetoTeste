@@ -1,11 +1,14 @@
 package com.tricents.pages;
 
+import java.time.Duration;
+
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  * Classe responsável por localizar os elementos da guia Product Data
@@ -13,9 +16,11 @@ import org.openqa.selenium.support.PageFactory;
 public class ProductDataPage {
 
 	WebDriver driver;
+	private WebDriverWait wait;
 	
 	public ProductDataPage(WebDriver driver) {
 		this.driver = driver;
+		wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		PageFactory.initElements(driver, this);
 	}
 		
@@ -44,34 +49,35 @@ public class ProductDataPage {
 	private WebElement btnNextSelectPriceOption;
 	
 	public void getMenuEnterProductDataIsActive() {
-		Assert.assertTrue(menuEnterProductDataActive.isDisplayed());
+		boolean ativo = wait.until(ExpectedConditions.visibilityOf(menuEnterProductDataActive)).isDisplayed();
+		Assert.assertTrue(ativo);
 	}
 
-	public WebElement getTxtStartDate() {
-		return txtStartDate;
+	public void preencherDataInicial(String data) {
+		wait.until(ExpectedConditions.visibilityOf(txtStartDate)).sendKeys(data);
 	}
 
-	public WebElement getSelectInsuranceSum() {
-		return selectInsuranceSum;
+	public void selecionarPrecoDoSeguro(String valor) {
+		wait.until(ExpectedConditions.visibilityOf(selectInsuranceSum)).sendKeys(valor);
 	}
 
-	public WebElement getSelectMeritRating() {
-		return selectMeritRating;
+	public void selecionarClassificacaoDoSeguro(String classificacao) {
+		wait.until(ExpectedConditions.visibilityOf(selectMeritRating)).sendKeys(classificacao);
 	}
 
-	public WebElement getSelectDamageInsurance() {
-		return selectDamageInsurance;
+	public void selecionarCoberturaDoSeguro(String opcao) {
+		wait.until(ExpectedConditions.visibilityOf(selectDamageInsurance)).sendKeys(opcao);
 	}
 
-	public WebElement getRdbOptionalProducts() {
-		return rdbOptionalProducts;
+	public void selecionarRadioButtonOpcoesDeProdutos() {
+		wait.until(ExpectedConditions.visibilityOf(rdbOptionalProducts)).click();
 	}
 
-	public WebElement getSelectCourtesyCar() {
-		return selectCourtesyCar;
+	public void selecionarCarroDeCortesia(String opcao) {
+		wait.until(ExpectedConditions.visibilityOf(selectCourtesyCar)).sendKeys(opcao);
 	}
 
-	public WebElement getBtnNextSelectPriceOption() {
-		return btnNextSelectPriceOption;
+	public void clicarBotaoNextSelectPriceOption() {
+		wait.until(ExpectedConditions.visibilityOf(btnNextSelectPriceOption)).click();
 	}
 }

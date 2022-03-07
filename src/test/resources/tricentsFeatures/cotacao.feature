@@ -4,7 +4,7 @@ Funcionalidade: Cotacao
   Como usuario comum do site, quero fazer uma cotacao de um veiculo
 
   @cotacao_com_sucesso
-  Cenario: Cotacao com sucesso
+  Esquema do Cenario: Cotacao com sucesso
     Dado que estou no site de cotacao
     E verifico que estou na guia Vehicle Data
     Quando seleciono a marca do veiculo "Nissan"
@@ -31,7 +31,7 @@ Funcionalidade: Cotacao
     E seleciono o pais de nascimento do cliente "Brasil"
     E digito o cep do cliente "04485554"
     E digito a cidade do cliente "Sao Paulo"
-    E seleciono a profissao do cliente "Desempregado"
+    E seleciono a <profissao> do cliente
     E seleciono os hobbies do cliente
     E digito o website do cliente "www.github.com"
     E clico em next de insurant data
@@ -39,9 +39,9 @@ Funcionalidade: Cotacao
     E seleciono a data inicial "10/04/2022"
     E seleciono a soma do seguro "10 mil"
     E seleciono a classificacao do seguro "super bonus"
-    E seleciono a opcao "nao" de seguro contra danos 
+    E seleciono a <opcaoSeguro> de seguro contra danos 
     E seleciono algum item de produto adicional
-    E seleciono a opcao "nao" de carro de cortesia
+    E seleciono a <opcaoCortesia> de carro de cortesia
     E clico em next de product data
     E verifico que estou na guia Select Price Option
     E seleciono a opcao de cotacao gold
@@ -52,8 +52,11 @@ Funcionalidade: Cotacao
     E digito o nome de usuario do cliente "LuanSoz"
     E digito a senha do cliente "@Luan123"
     E digito a confirmacao de senha do cliente "@Luan123"
-    E digito os comentarios opcionais da solicitacao do cliente
+    E digito os <comentarios> opcionais da solicitacao do cliente
     E clico em Send de Send Quote
     Entao valido a cotacao enviada com sucesso
     
+    Exemplos: 
+    |profissao	 |opcaoSeguro		|opcaoCortesia|comentarios				|
+    |"Unemployed"|"No coverage" |"no" 				|"Thanks Accenture" |
 
