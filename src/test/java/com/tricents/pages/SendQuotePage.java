@@ -1,13 +1,17 @@
 package com.tricents.pages;
 
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+/**
+ * Classe responsável por localizar os elementos da guia Send Quote
+ */
 public class SendQuotePage {
 
-	private WebDriver driver;
+	WebDriver driver;
 	
 	public SendQuotePage(WebDriver driver) {
 		this.driver = driver;
@@ -41,8 +45,8 @@ public class SendQuotePage {
 	@FindBy(xpath = "//h2[contains(text(),'Sending e-mail success!')]")
 	private WebElement lblEmailSendSucess;
 
-	public WebElement getMenuSendQuoteActive() {
-		return menuSendQuoteActive;
+	public void getMenuSendQuoteIsActive() {
+		Assert.assertTrue(menuSendQuoteActive.isDisplayed());
 	}
 
 	public WebElement getTxtEMail() {

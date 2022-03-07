@@ -1,11 +1,13 @@
 package com.tricents.steps;
 
-import org.junit.Assert;
 import com.tricents.pages.VehicleDataPage;
 import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.Quando;
 import managers.TestContext;
 
+/**
+ * Classe responsavel pela execução dos passos de teste das especificacoes dos arquivos ".feature", da guia Vehicle Data
+ */
 public class VehicleDataStep {
 	
 	TestContext testContext;
@@ -24,7 +26,7 @@ public class VehicleDataStep {
 	
 	@Dado("verifico que estou na guia Vehicle Data")
 	public void verifico_que_estou_na_guia_vehicle_data() {
-		Assert.assertTrue(vehicleDataPage.getMenuEnterVehicleDataActive().isDisplayed());
+		vehicleDataPage.getMenuEnterVehicleIsActive();
 	}
 
 	@Quando("seleciono a marca do veiculo {string}")

@@ -1,10 +1,12 @@
 package com.tricents.steps;
 
-import org.junit.Assert;
 import com.tricents.pages.InsurantDataPage;
 import io.cucumber.java.pt.Quando;
 import managers.TestContext;
 
+/**
+ * Classe responsavel pela execução dos passos de teste das especificacoes dos arquivos ".feature", da guia Insurant Data
+ */
 public class InsurantDataStep {
 
 	TestContext testContext;
@@ -17,7 +19,7 @@ public class InsurantDataStep {
 	
 	@Quando("verifico que estou na guia Insurant Data")
 	public void verifico_que_estou_na_guia_insurant_data() {
-		Assert.assertTrue(insurantDataPage.getMenuEnterInsurantActive().isDisplayed());
+		insurantDataPage.getMenuEnterInsurantIsActive();
 	}
 
 	@Quando("digito o primeiro nome do cliente {string}")

@@ -5,6 +5,11 @@ import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import managers.TestContext;
 
+/**
+ * Classe responsavel pela execucao de metodos que serao executados antes de cada cenario
+ * @author joao.africo
+ *
+ */
 public class Hooks{
 	
 	TestContext testContext;
@@ -13,6 +18,10 @@ public class Hooks{
 		testContext = context;
 	}
 	
+	/**
+	 * Metodo responsavel por ser executado antes de cada cenario
+	 * @param cenario. Utilizado para chamar as propriedades do cenario
+	 */
 	@Before
 	public void setup(Scenario cenario) {
 		System.out.println("-------------INICIANDO AUTOMAÇÃO----------");	
@@ -21,11 +30,15 @@ public class Hooks{
 		System.out.println("-------------------------------------------");
 	}
 	
+	/**
+	 * Metodo responsavel por ser executado depois de cada cenario
+	 * @param cenario. Utilizado para chamar as propriedades do cenario
+	 */
 	@After
 	public void tearDown(Scenario cenario) {	
 		System.out.println("--------------------------------------------");
 		System.out.println("-------------FINALIZANDO AUTOMAÇÃO----------");
 		System.out.println("*****STATUS: "+cenario.getStatus());
-		//testContext.getWebDriverManager().closeDriver();
+		testContext.getWebDriverManager().closeDriver();
 	}	
 }

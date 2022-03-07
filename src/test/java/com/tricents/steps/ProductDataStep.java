@@ -1,12 +1,13 @@
 package com.tricents.steps;
 
-import org.junit.Assert;
-
 import com.tricents.pages.ProductDataPage;
 
 import io.cucumber.java.pt.Quando;
 import managers.TestContext;
 
+/**
+ * Classe responsavel pela execução dos passos de teste das especificacoes dos arquivos ".feature", da guia Product Data
+ */
 public class ProductDataStep {
 
 	TestContext testContext;
@@ -19,7 +20,7 @@ public class ProductDataStep {
 	
 	@Quando("verifico que estou na guia Product Data")
 	public void verifico_que_estou_na_guia_product_data() {
-		Assert.assertTrue(productDataPage.getMenuEnterProductDataActive().isDisplayed());
+		productDataPage.getMenuEnterProductDataIsActive();
 	}
 
 	@Quando("seleciono a data inicial {string}")

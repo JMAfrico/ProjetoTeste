@@ -8,6 +8,9 @@ import com.tricents.pages.SelectPriceOptionPage;
 import com.tricents.pages.SendQuotePage;
 import com.tricents.pages.VehicleDataPage;
 
+/**
+ * Classe responsavel por compartilhar o drive entre as chamadas dos Objects
+ */
 public class PageObjectManager {
 
 	private WebDriver driver;

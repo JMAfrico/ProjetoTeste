@@ -6,9 +6,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+/**
+ * Classe responsável por localizar os elementos da guia Vehicle Data
+ */
 public class VehicleDataPage {
 
-	private WebDriver driver;
+	WebDriver driver;
 	
 	public VehicleDataPage(WebDriver driver) {
 		this.driver = driver;
@@ -74,9 +77,9 @@ public class VehicleDataPage {
 	public WebElement getSelectModel() {
 		return selectModel;
 	}
-
-	public WebElement getMenuEnterVehicleDataActive() {
-		return menuEnterVehicleDataActive;
+	
+	public void getMenuEnterVehicleIsActive() {
+		Assert.assertTrue(menuEnterVehicleDataActive.isDisplayed());
 	}
 
 	public WebElement getTxtCylinderCapacity() {

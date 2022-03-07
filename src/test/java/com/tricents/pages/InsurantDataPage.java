@@ -1,13 +1,17 @@
 package com.tricents.pages;
 
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+/**
+ * Classe responsável por localizar os elementos da guia Insurant Data
+ */
 public class InsurantDataPage {
 
-	private WebDriver driver;
+	WebDriver driver;
 	
 	public InsurantDataPage(WebDriver driver) {
 		this.driver = driver;
@@ -63,8 +67,8 @@ public class InsurantDataPage {
 		return btnNextEnterProductData;
 	}
 
-	public WebElement getMenuEnterInsurantActive() {
-		return menuEnterInsurantActive;
+	public void getMenuEnterInsurantIsActive() {
+		Assert.assertTrue(menuEnterInsurantActive.isDisplayed());
 	}
 
 	public WebElement getTxtFirstName() {

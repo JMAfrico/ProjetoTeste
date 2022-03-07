@@ -7,6 +7,9 @@ import io.cucumber.java.pt.Entao;
 import io.cucumber.java.pt.Quando;
 import managers.TestContext;
 
+/**
+ * Classe responsavel pela execução dos passos de teste das especificacoes dos arquivos ".feature", da guia Send Quote
+ */
 public class SendQuoteStep {
 
 	TestContext testContext;
@@ -19,7 +22,7 @@ public class SendQuoteStep {
 	
 	@Quando("verifico que estou na guia Send Quote")
 	public void verifico_que_estou_na_guia_send_quote() {
-		Assert.assertTrue(sendQuotePage.getMenuSendQuoteActive().isDisplayed());
+		sendQuotePage.getMenuSendQuoteIsActive();
 	}
 
 	@Quando("digito o email do cliente {string}")

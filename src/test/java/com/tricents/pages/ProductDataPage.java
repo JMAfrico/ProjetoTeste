@@ -1,13 +1,18 @@
 package com.tricents.pages;
 
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+
+/**
+ * Classe responsável por localizar os elementos da guia Product Data
+ */
 public class ProductDataPage {
 
-	private WebDriver driver;
+	WebDriver driver;
 	
 	public ProductDataPage(WebDriver driver) {
 		this.driver = driver;
@@ -38,9 +43,8 @@ public class ProductDataPage {
 	@FindBy(xpath = "//button[@id='nextselectpriceoption']")
 	private WebElement btnNextSelectPriceOption;
 	
-			
-	public WebElement getMenuEnterProductDataActive() {
-		return menuEnterProductDataActive;
+	public void getMenuEnterProductDataIsActive() {
+		Assert.assertTrue(menuEnterProductDataActive.isDisplayed());
 	}
 
 	public WebElement getTxtStartDate() {

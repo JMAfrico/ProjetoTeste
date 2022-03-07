@@ -1,12 +1,13 @@
 package com.tricents.steps;
 
-import org.junit.Assert;
-
 import com.tricents.pages.SelectPriceOptionPage;
 
 import io.cucumber.java.pt.Quando;
 import managers.TestContext;
 
+/**
+ * Classe responsavel pela execução dos passos de teste das especificacoes dos arquivos ".feature", da guia Select Price Option
+ */
 public class SelectPriceOptionStep {
 
 	TestContext testContext;
@@ -19,7 +20,7 @@ public class SelectPriceOptionStep {
 	
 	@Quando("verifico que estou na guia Select Price Option")
 	public void verifico_que_estou_na_guia_select_price_option() {
-		Assert.assertTrue(selectPriceOptionPage.getMenuSelectPriceOptionActive().isDisplayed());
+		selectPriceOptionPage.getMenuSelectPriceOptionIsActive();
 	}
 
 	@Quando("seleciono a opcao de cotacao gold")

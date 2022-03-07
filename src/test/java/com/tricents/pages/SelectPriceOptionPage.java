@@ -1,13 +1,17 @@
 package com.tricents.pages;
 
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+/**
+ * Classe responsável por localizar os elementos da guia Select Price Option
+ */
 public class SelectPriceOptionPage {
 
-	private WebDriver driver;
+	WebDriver driver;
 	
 	public SelectPriceOptionPage(WebDriver driver) {
 		this.driver = driver;
@@ -23,8 +27,8 @@ public class SelectPriceOptionPage {
 	@FindBy(xpath = "//button[@id='nextsendquote']")
 	private WebElement btnNextSendQuote;
 	
-	public WebElement getMenuSelectPriceOptionActive() {
-		return menuSelectPriceOptionActive;
+	public void getMenuSelectPriceOptionIsActive() {
+		Assert.assertTrue(menuSelectPriceOptionActive.isDisplayed());
 	}
 	
 	public WebElement getRdbSelectPriceOption() {
