@@ -8,6 +8,7 @@
 - Selenium<br>
 - Cucumber<br>
 - Junit<br>
+- Gherkin
 
 >### Padões de projeto:
 - Feature<br>
