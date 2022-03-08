@@ -38,7 +38,7 @@ Funcionalidade: Cotacao
     E verifico que estou na guia Product Data
     E seleciono a data inicial "10/04/2022"
     E seleciono a soma do seguro "10 mil"
-    E seleciono a classificacao do seguro "super bonus"
+    E seleciono a classificacao do seguro "Super Bonus"
     E seleciono a <opcaoSeguro> de seguro contra danos 
     E seleciono algum item de produto adicional
     E seleciono a <opcaoCortesia> de carro de cortesia
@@ -58,5 +58,5 @@ Funcionalidade: Cotacao
     
     Exemplos: 
     |profissao	 |opcaoSeguro		|opcaoCortesia|comentarios				|
-    |"Unemployed"|"No coverage" |"no" 				|"Thanks Accenture" |
+    |"Unemployed"|"No Coverage" |"No" 				|"Thanks Accenture" |
 

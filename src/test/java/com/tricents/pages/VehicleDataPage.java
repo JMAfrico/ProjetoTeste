@@ -9,6 +9,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.ui.Select;
 
 /**
  * Classe responsável por localizar os elementos da guia Vehicle Data
@@ -86,7 +87,9 @@ public class VehicleDataPage {
 	}
 	
 	public void selecionarModelo(String modelo) {
-		wait.until(ExpectedConditions.visibilityOf(selectModel)).sendKeys(modelo);
+		WebElement listModelo = wait.until(ExpectedConditions.visibilityOf(selectModel));
+		Select selecionarObjeto = new Select(listModelo);
+		selecionarObjeto.selectByValue(modelo);
 	}
 	
 	public void preencherCapacidadeCilindradas(String cilindradas) {
@@ -98,7 +101,9 @@ public class VehicleDataPage {
 	}
 
 	public void selecionarNumeroDeAssentosLadoMotorista(String assentos) {
-		wait.until(ExpectedConditions.visibilityOf(selectNumberofSeatsMotorcycle)).sendKeys(assentos);
+		WebElement listAssentos = wait.until(ExpectedConditions.visibilityOf(selectNumberofSeatsMotorcycle));
+		Select selecionarObjeto = new Select(listAssentos);
+		selecionarObjeto.selectByValue(assentos);
 	}
 
 	public void preecherCargaUtil(String cargaUtil) {
@@ -126,7 +131,9 @@ public class VehicleDataPage {
 	}
 
 	public void selecionarTipoDeCombustivel(String tipoCombustivel) {
-		wait.until(ExpectedConditions.visibilityOf(selectFuelType)).sendKeys(tipoCombustivel);
+		WebElement listTipoCombustivel = wait.until(ExpectedConditions.visibilityOf(selectFuelType));
+		Select selecionarObjeto = new Select(listTipoCombustivel);
+		selecionarObjeto.selectByValue(tipoCombustivel);
 	}
 
 	public void preencherPrecoDeTabela(String precoTabela) {
@@ -142,6 +149,8 @@ public class VehicleDataPage {
 	}
 
 	public void preencherMarcaDoVeiculo(String marca) {
-		wait.until(ExpectedConditions.visibilityOf(selectMake)).sendKeys(marca);
+		WebElement listMarca = wait.until(ExpectedConditions.visibilityOf(selectMake));
+		Select selecionarObjeto = new Select(listMarca);
+		selecionarObjeto.selectByValue(marca);
 	}
 }

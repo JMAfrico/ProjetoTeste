@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
@@ -59,14 +60,19 @@ public class ProductDataPage {
 
 	public void selecionarPrecoDoSeguro(String valor) {
 		wait.until(ExpectedConditions.visibilityOf(selectInsuranceSum)).sendKeys(valor);
+
 	}
 
 	public void selecionarClassificacaoDoSeguro(String classificacao) {
-		wait.until(ExpectedConditions.visibilityOf(selectMeritRating)).sendKeys(classificacao);
+		WebElement listClassificacaoSeguro = wait.until(ExpectedConditions.visibilityOf(selectMeritRating));
+		Select selecionarObjeto = new Select(listClassificacaoSeguro);
+		selecionarObjeto.selectByValue(classificacao);
 	}
 
 	public void selecionarCoberturaDoSeguro(String opcao) {
-		wait.until(ExpectedConditions.visibilityOf(selectDamageInsurance)).sendKeys(opcao);
+		WebElement listCoberturaSeguro = wait.until(ExpectedConditions.visibilityOf(selectDamageInsurance));
+		Select selecionarObjeto = new Select(listCoberturaSeguro);
+		selecionarObjeto.selectByValue(opcao);
 	}
 
 	public void selecionarRadioButtonOpcoesDeProdutos() {
@@ -74,7 +80,9 @@ public class ProductDataPage {
 	}
 
 	public void selecionarCarroDeCortesia(String opcao) {
-		wait.until(ExpectedConditions.visibilityOf(selectCourtesyCar)).sendKeys(opcao);
+		WebElement listCarroCortesia = wait.until(ExpectedConditions.visibilityOf(selectCourtesyCar));
+		Select selecionarObjeto = new Select(listCarroCortesia);
+		selecionarObjeto.selectByValue(opcao);
 	}
 
 	public void clicarBotaoNextSelectPriceOption() {
