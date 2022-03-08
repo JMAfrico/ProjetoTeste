@@ -10,14 +10,14 @@
 - Junit<br>
 - Gherkin
 
->### Padões de projeto:
+>### Padrões de projeto:
 - Feature<br>
 - Page Object<br>
 - Steps<br>
 - Managers<br>
 - Runner<br>
 
->### Dependencias do projeto:
+>### Dependências do projeto:
 - cucumber-java 6.9.0<br>
 - cucumber-junit 6.9.0<br>
 - selenium-java 4.1.1<br>
