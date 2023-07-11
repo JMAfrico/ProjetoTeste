@@ -27,7 +27,7 @@
 >### Como executar:
 - 1º) Baixar ou clonar projeto
 - 2º) Se você não tem instalado o "cucumber eclipse plugin" é necessário instalar. No Eclipse vá em Help>Eclipse MarketPlace>digite cucumber eclipse plugin e instale 
-- 2º) Importar projeto no eclipse: Botao direito>import>maven>existing maven project>seleciona o projeto>finish
-- 3º) Projeto compilado na versão 1.8 - Verificar versão do Java. Clicar com botão direito no projeto>Propriedades>Java Build Path>Libraries>JRE System Library>Edit>JSE1.8
-- 4º) Ir na pasta src/test/resource> tricentsFeature> cotacao.feature. Apertar com o botão direito> Run As> cucumber feature  
+- 3º) Importar projeto no eclipse: Botao direito>import>maven>existing maven project>seleciona o projeto>finish
+- 4º) Projeto compilado na versão 1.8 - Verificar versão do Java. Clicar com botão direito no projeto>Propriedades>Java Build Path>Libraries>JRE System Library>Edit>JSE1.8
+- 5º) Ir na pasta src/test/resource> tricentsFeature> cotacao.feature. Apertar com o botão direito> Run As> cucumber feature  
 ou<br>   src/test/java> com.tricents.runners>Tricents Runner. Apertar com o botao direito> Run As> Junit Test
